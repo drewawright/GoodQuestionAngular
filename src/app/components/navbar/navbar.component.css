@@ -1,6 +1,7 @@
 mat-toolbar {
     background-color: #374140;
     color: #8f57e1;
+    height: 50px;
 }
 
 .highlight {
