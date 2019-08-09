@@ -1,0 +1,9 @@
+#SpotifyLogo {
+    vertical-align:middle;
+}
+
+#footer {
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+}
