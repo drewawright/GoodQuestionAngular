@@ -4,6 +4,15 @@ mat-toolbar {
     height: 50px;
 }
 
+.nav-logo {
+    color: #8f57e1;
+    text-decoration: none;
+}
+
+.nav-logo:visited {
+    color: #8f57e1;
+}
+
 .highlight {
     color: #1976D2;
 }
