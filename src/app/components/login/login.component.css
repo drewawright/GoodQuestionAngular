@@ -1,20 +1,20 @@
-.register-container {
+.login-container {
     text-align: center;
-    margin: 0 auto;
 }
 
 h4 {
     font-size: 1.5em;
 }
 
-.register-form-block {
-    margin: 0 auto;
+.login-form-block {
+    margin: 20px auto;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #374140;
     color: #fbfbfb;
     width: 25%;
     border-radius: 10px;
+    box-shadow: 3px 3px 10px black;
 }
 
 .register-form-block > * {
