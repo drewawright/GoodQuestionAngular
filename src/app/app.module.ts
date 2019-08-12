@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AppAuthService } from './services/app-auth.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AppAuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
