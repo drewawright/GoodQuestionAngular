@@ -24,7 +24,7 @@ import { PlaylistService } from './services/playlist.service';
     HomeComponent,
     RegistrationComponent,
     LoginComponent,
-    PlaylistIndexComponent
+    PlaylistIndexComponent,
   ],
   imports: [
     BrowserModule,
