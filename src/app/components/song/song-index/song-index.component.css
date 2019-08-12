@@ -1,0 +1,22 @@
+.song-index-container {
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+    color: #fbfbfb;
+    margin-top: 50px;
+}
+
+.song-data-container {
+    grid-column: 1 / span 1;
+    margin-left: 10px;
+}
+
+.song-data {
+    background: #374140;
+    margin: 20px 10px;
+    padding: 5px 20px;
+    border-radius: 15px;
+}
+
+.song-card-container {
+    grid-column: 3 / span 1;
+}

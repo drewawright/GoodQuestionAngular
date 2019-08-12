@@ -15,6 +15,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { LoginComponent } from './components/login/login.component';
 import { PlaylistIndexComponent } from './components/playlist/playlist-index/playlist-index.component';
 import { PlaylistService } from './services/playlist.service';
+import { SongIndexComponent } from './components/song/song-index/song-index.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PlaylistService } from './services/playlist.service';
     RegistrationComponent,
     LoginComponent,
     PlaylistIndexComponent,
+    SongIndexComponent,
   ],
   imports: [
     BrowserModule,

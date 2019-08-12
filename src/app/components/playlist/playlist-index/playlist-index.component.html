@@ -22,6 +22,7 @@
                         <mat-card-title>{{ playlist.PlaylistName }}</mat-card-title>
                         <mat-card-subtitle> {{ playlist.IsOwned }} </mat-card-subtitle>
                     </mat-card-header>
+                    <button mat-flat-button routerLink="/song/index/{{playlist.PlaylistId}}">See More</button>
                 </mat-card>
             </mat-grid-tile>
         </mat-grid-list>
