@@ -1,0 +1,16 @@
+<div class="playlist-data-container">
+    <h2>Data goes here</h2>
+</div>
+<div class="playlist-card-container" *ngIf="playlistIndex != null">
+    <mat-grid-list cols="4" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let playlist of playlistIndex">
+            <mat-card class="playlist-card">
+                <img mat-card-image src="{{ playlist.ImageUrl }}" />
+                <mat-card-header>
+                    <mat-card-title>{{ playlist.PlaylistName }}</mat-card-title>
+                    <mat-card-subtitle> {{ playlist.IsOwned }} </mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
