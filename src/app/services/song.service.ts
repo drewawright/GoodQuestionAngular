@@ -1,22 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 const ApiUrl = 'http://musicqeary.azurewebistes.net/api';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PlaylistService {
+export class SongService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient,) { }
 
-  getPlaylists() {
-    return this._http.get(`${ApiUrl}/Playlist/Index`, { headers: this.getHeaders() });
-  }
-
-  getPlaylistById(id: string) {
-    return this._http.get(`${ApiUrl}/Playlist/Detail/${id}`)
+  getSongs(id: string) {
+    return this._http.get(`${ApiUrl}/Song/Index/${id}`, { headers: this.getHeaders() })
   }
 
   private getHeaders() {
