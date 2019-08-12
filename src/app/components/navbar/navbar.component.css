@@ -21,8 +21,12 @@ mat-toolbar {
     flex: 1 1 auto;
 }
 
-.nav-btn {
+.material-icons {
     margin-right: 0.5em;
-    background-color: #2a2a2e;
+    font-size: 2em;
     color: #fbfbfb;
+}
+
+.material-icons:hover {
+    cursor: pointer;
 }

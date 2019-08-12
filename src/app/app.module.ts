@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatButtonModule, MatMenuModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatMenuModule, MatInputModule, MatFormFieldModule, MatCardModule, MatGridListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppAuthService } from './services/app-auth.service';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
+import { PlaylistIndexComponent } from './components/playlist/playlist-index/playlist-index.component';
+import { PlaylistService } from './services/playlist.service';
+import { SongIndexComponent } from './components/song/song-index/song-index.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { LoginComponent } from './components/login/login.component';
     NavbarComponent,
     HomeComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    PlaylistIndexComponent,
+    SongIndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,10 +39,13 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
+    MatCardModule,
+    MatGridListModule,
     HttpClientModule
-  ],
-  providers: [
-    AppAuthService
+],
+providers: [
+    AppAuthService,
+    PlaylistService
   ],
   bootstrap: [AppComponent]
 })
