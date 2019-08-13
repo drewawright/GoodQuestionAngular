@@ -3,7 +3,7 @@
     <span class="example-fill-remaining-space"></span>
     <mat-menu #appMenu="matMenu">
         <button mat-menu-item>Settings</button>
-        <button mat-menu-item>Logout</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
         <!-- <i mat-icon-button [matMenuTriggerFor]="appMenu" class="material-icons">
             person
