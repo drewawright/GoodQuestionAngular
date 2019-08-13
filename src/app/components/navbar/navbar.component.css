@@ -4,6 +4,10 @@ mat-toolbar {
     height: 50px;
 }
 
+button:focus {
+    outline: none;
+}
+
 .nav-logo {
     color: #8f57e1;
     text-decoration: none;
@@ -21,12 +25,12 @@ mat-toolbar {
     flex: 1 1 auto;
 }
 
-.material-icons {
+.icon {
     margin-right: 0.5em;
     font-size: 2em;
     color: #fbfbfb;
 }
 
-.material-icons:hover {
+.icon:hover {
     cursor: pointer;
 }
