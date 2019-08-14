@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatToolbarModule, MatButtonModule, MatMenuModule, MatInputModule, MatFormFieldModule, MatCardModule, MatGridListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PlaylistIndexComponent } from './components/playlist/playlist-index/playlist-index.component';
 import { PlaylistService } from './services/playlist.service';
 import { SongIndexComponent } from './components/song/song-index/song-index.component';
+import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,11 @@ import { SongIndexComponent } from './components/song/song-index/song-index.comp
     LoginComponent,
     PlaylistIndexComponent,
     SongIndexComponent,
+    SongDetailComponent,
   ],
   imports: [
     BrowserModule,
+    MDBBootstrapModule.forRoot(),
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,

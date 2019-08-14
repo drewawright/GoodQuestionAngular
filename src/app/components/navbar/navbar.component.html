@@ -5,7 +5,8 @@
         <button mat-menu-item>Settings</button>
         <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
-        <i mat-icon-button [matMenuTriggerFor]="appMenu" class="material-icons">
+        <!-- <i mat-icon-button [matMenuTriggerFor]="appMenu" class="material-icons">
             person
-        </i>    
+        </i>     -->
+        <mdb-icon fas icon="user" [matMenuTriggerFor]="appMenu" class="icon"></mdb-icon>
 </mat-toolbar>

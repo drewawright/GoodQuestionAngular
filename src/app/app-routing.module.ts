@@ -5,6 +5,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { LoginComponent } from './components/login/login.component';
 import { PlaylistIndexComponent } from './components/playlist/playlist-index/playlist-index.component';
 import { SongIndexComponent } from './components/song/song-index/song-index.component';
+import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'song', children: [
-      { path: '', component: SongIndexComponent }
+      { path: '', component: SongIndexComponent },
+      { path: 'detail/:id', component: SongDetailComponent },
     ]
   },
   { path: '**', component: HomeComponent }
