@@ -37,14 +37,11 @@ export class AppAuthService {
   }
 
   getExternalUrl() {
-      return this._http.get(`${AppApi_Url}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`).subscribe(response => response);
+      return this._http.get(`${AppApi_Url}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`).subscribe(response => this.externalLoginUrl = response[0].Url);
   }
 
   authExternal() {
-    // this.externalLoginUrl = this.getExternalUrl().subscribe((url: string) => {
-    
-    // });
-    return console.log(`${AppApi_Url}/${this.externalLoginUrl}`);
+    return this._http.get(`${AppApi_Url}/${this.externalLoginUrl}`);
   }
 
   currentUser(): Observable<Object> {
