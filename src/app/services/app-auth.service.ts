@@ -41,7 +41,10 @@ export class AppAuthService {
   }
 
   authExternal() {
-    return this._http.get(`${AppApi_Url}/${this.externalLoginUrl}`);
+    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)
+    authHeader.set('Access-Control-Allow-Origin', 'http://localhost:4200');
+
+    return this._http.get(`${AppApi_Url}${this.externalLoginUrl}`, {headers: authHeader});
   }
 
   currentUser(): Observable<Object> {

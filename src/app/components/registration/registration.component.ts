@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
 import { AppAuthService } from '../../services/app-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +13,7 @@ export class RegistrationComponent implements OnInit {
 
   private _registerForm: FormGroup;
 
-  constructor(private _form: FormBuilder, private _appAuthService: AppAuthService) { 
+  constructor(private _form: FormBuilder, private _appAuthService: AppAuthService, private _router: Router) { 
     this.createForm();
   }
 
@@ -20,8 +21,8 @@ export class RegistrationComponent implements OnInit {
     this._appAuthService.getExternalUrl();
   }
 
-  authExternalProvider(provider: string) {
-    this._appAuthService.authExternal();
+  authExternalProvider() {
+    this._appAuthService.authExternal().subscribe(result => console.log(result));
   }
 
   createForm() {
