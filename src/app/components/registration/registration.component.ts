@@ -20,7 +20,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   authExternalProvider(provider: string) {
-    console.log(this._appAuthService.getExternalUrl().subscribe());
+    this._appAuthService.getExternalUrl();
   }
 
   createForm() {

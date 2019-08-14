@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Token } from '../models/Token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const AppApi_Url = 'https://musicqeary.azurewebsites.net';
 
@@ -36,13 +37,13 @@ export class AppAuthService {
   }
 
   getExternalUrl() {
-      return this._http.get(`${AppApi_Url}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`)
+      return this._http.get(`${AppApi_Url}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`).subscribe(response => response);
   }
 
   authExternal() {
-    this.externalLoginUrl = this.getExternalUrl().subscribe((url: string) => {
+    // this.externalLoginUrl = this.getExternalUrl().subscribe((url: string) => {
     
-    });
+    // });
     return console.log(`${AppApi_Url}/${this.externalLoginUrl}`);
   }
 
