@@ -7,14 +7,17 @@ import { Observable, Subject } from 'rxjs';
 
 const AppApi_Url = 'https://musicqeary.azurewebsites.net';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AppAuthService {
   userInfo: Token;
   isLoggedIn = new Subject<boolean>();
-
+  
   constructor(private _http: HttpClient, private _router: Router) { }
+  
+  externalLoginUrl: string;
 
   register(regUserData: RegisterUser){
     return this._http.post(`${AppApi_Url}/api/account/register`, regUserData);
@@ -30,6 +33,17 @@ export class AppAuthService {
         this.isLoggedIn.next(true);
         this._router.navigate(['/']);
       });
+  }
+
+  getExternalUrl() {
+      return this._http.get(`${AppApi_Url}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`)
+  }
+
+  authExternal() {
+    this.externalLoginUrl = this.getExternalUrl().subscribe((url: string) => {
+    
+    });
+    return console.log(`${AppApi_Url}/${this.externalLoginUrl}`);
   }
 
   currentUser(): Observable<Object> {
