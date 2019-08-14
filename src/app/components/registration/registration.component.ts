@@ -22,7 +22,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   authExternalProvider() {
-    window.open(`https://musicqeary.azurewebsites.net${this._appAuthService.externalLoginUrl}`, "Authenticate Account", "location=0,status=0,width=600,height=750");
+
+    window.open(`https://musicqeary.azurewebsites.net${this._appAuthService.externalLoginUrl}`,"_self", "Authenticate Account" );
   }
 
   createForm() {
