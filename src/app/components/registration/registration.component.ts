@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   authExternalProvider() {
-    this._appAuthService.authExternal().subscribe(result => console.log(result));
+    window.open(`https://musicqeary.azurewebsites.net${this._appAuthService.externalLoginUrl}`, "Authenticate Account", "location=0,status=0,width=600,height=750");
   }
 
   createForm() {

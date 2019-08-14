@@ -41,8 +41,8 @@ export class AppAuthService {
   }
 
   authExternal() {
-    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)
-    authHeader.set('Access-Control-Allow-Origin', 'http://localhost:4200');
+    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    authHeader.append('Access-Control-Allow-Origin', '*');
 
     return this._http.get(`${AppApi_Url}${this.externalLoginUrl}`, {headers: authHeader});
   }
