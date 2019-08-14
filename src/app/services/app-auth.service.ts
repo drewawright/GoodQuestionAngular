@@ -4,8 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Token } from '../models/Token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const AppApi_Url = 'https://musicqeary.azurewebsites.net';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +15,10 @@ const AppApi_Url = 'https://musicqeary.azurewebsites.net';
 export class AppAuthService {
   userInfo: Token;
   isLoggedIn = new Subject<boolean>();
-
+  
   constructor(private _http: HttpClient, private _router: Router) { }
+  
+  externalLoginUrl: string;
 
   register(regUserData: RegisterUser){
     return this._http.post(`${AppApi_Url}/api/account/register`, regUserData);
@@ -30,6 +34,14 @@ export class AppAuthService {
         this.isLoggedIn.next(true);
         this._router.navigate(['/']);
       });
+  }
+
+  getExternalUrl() {
+      return this._http.get(`${AppApi_Url}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`).subscribe(response => this.externalLoginUrl = response[0].Url);
+  }
+
+  authExternal() {
+    return this._http.get(`${AppApi_Url}/${this.externalLoginUrl}`);
   }
 
   currentUser(): Observable<Object> {

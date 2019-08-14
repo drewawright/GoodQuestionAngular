@@ -4,7 +4,7 @@
 <div class="register-form-block">
     <h4>Create Your Account</h4>
 
-    <form (ngSubmit)="onSubmit()" [formGroup]="_registerForm">
+    <!-- <form (ngSubmit)="onSubmit()" [formGroup]="_registerForm">
         <div>
             <div>
                 <mat-form-field appearance="outline">
@@ -28,6 +28,8 @@
             </div>
         </div>
         <button mat-flat-button class="register-btn" type="submit">Register</button>
-    </form>
+    </form> -->
+
+    <button mat-flat-button class="register-btn" type="button" (click)="authExternalProvider('Spotify')">Log in with Spotify</button>
 </div>
 </div>

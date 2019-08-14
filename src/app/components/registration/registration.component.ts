@@ -17,6 +17,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._appAuthService.getExternalUrl();
+  }
+
+  authExternalProvider(provider: string) {
+    this._appAuthService.authExternal();
   }
 
   createForm() {
