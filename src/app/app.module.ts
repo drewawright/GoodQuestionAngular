@@ -19,6 +19,7 @@ import { PlaylistService } from './services/playlist.service';
 import { SongIndexComponent } from './components/song/song-index/song-index.component';
 import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { CompleteRegistrationComponent } from './components/complete-registration/complete-registration.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CallbackComponent } from './components/callback/callback.component';
     SongIndexComponent,
     SongDetailComponent,
     CallbackComponent,
+    CompleteRegistrationComponent,
   ],
   imports: [
     BrowserModule,
