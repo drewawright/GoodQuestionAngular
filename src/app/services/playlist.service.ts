@@ -15,6 +15,10 @@ export class PlaylistService {
     return this._http.get(`${ApiUrl}/Playlist/Index`, { headers: this.getHeaders() });
   }
 
+  getPlaylistsSpotify() {
+    return this._http.get(`${ApiUrl}/Playlist`, { headers: this.getHeaders() });
+  }
+
   getPlaylistById(id: string) {
     return this._http.get(`${ApiUrl}/Playlist/Detail/${id}`)
   }

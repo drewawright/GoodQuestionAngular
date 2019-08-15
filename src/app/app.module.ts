@@ -5,6 +5,7 @@ import { MatToolbarModule, MatButtonModule, MatMenuModule, MatInputModule, MatFo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -19,7 +20,7 @@ import { PlaylistService } from './services/playlist.service';
 import { SongIndexComponent } from './components/song/song-index/song-index.component';
 import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 import { CallbackComponent } from './components/callback/callback.component';
-import { CompleteRegistrationComponent } from './components/complete-registration/complete-registration.component';
+import { AnalyzeUserComponent } from './components/analyze-user/analyze-user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { CompleteRegistrationComponent } from './components/complete-registratio
     SongIndexComponent,
     SongDetailComponent,
     CallbackComponent,
-    CompleteRegistrationComponent,
+    AnalyzeUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,8 @@ import { CompleteRegistrationComponent } from './components/complete-registratio
     MatFormFieldModule,
     MatCardModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule
 ],
 providers: [
     AppAuthService,
