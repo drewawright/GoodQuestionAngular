@@ -1,6 +1,6 @@
 .playlist-index-container {
     display: grid;
-    grid-template-columns: 1fr 50px 1fr;
+    grid-template-columns: .7fr 50px 1.3fr;
     color: #fbfbfb;
     margin-top: 50px;
 }
@@ -19,5 +19,23 @@
 
 .playlist-card-container {
     grid-column: 3 / span 1;
+    overflow:scroll;
+    height: 70vh;
+}
+
+.playlist-card {
+    width: 200px;
+    padding: 25px;
+    text-align: center;
+    height: 400px;
+    background-color: #374140;
+}
+
+.playlist-card>img {
+    width: 150px;
+}
+
+mat-card-header{
+    text-align: center;
 }
 
