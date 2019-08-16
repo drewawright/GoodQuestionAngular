@@ -1,15 +1,17 @@
-<div class="song-detail-container">
-    <div class="song-data-container">
-        <canvas mdbChart
-        [chartType]="chartType"
-        [datasets]="ChartDataSets"
-        [labels]="chartLabels"
-        [colors]="chartColors"
-        [options]="chartOptions"
-        [legend]="true">
-    </canvas>
-    </div>
-    <div class="song-info-container">
-            <iframe src="https://open.spotify.com/embed/track/{{song.SongId}}" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<div *ngIf="song != null">
+    <div class="song-detail-container">
+        <div class="song-data-container">
+            <canvas mdbChart
+                [chartType]="chartType"
+                [datasets]="ChartDataSets"
+                [labels]="chartLabels"
+                [colors]="chartColors"
+                [options]="chartOptions"
+                [legend]="true">
+            </canvas>
+        </div>
+            <!-- <div class="song-info-container">
+                    <iframe src="https://open.spotify.com/embed/track/{{ songUrl }}" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div> -->
     </div>
 </div>

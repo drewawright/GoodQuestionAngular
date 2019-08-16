@@ -26,7 +26,7 @@
                             <mat-card-subtitle> {{ song.Artist }} </mat-card-subtitle>
                             <mat-card-subtitle> {{ song.AlbumName }} </mat-card-subtitle>
                         </mat-card-header>
-                        <button mat-flat-button routerLink="/song/detail/{{song.SongId}}"></button>
+                        <a mat-flat-button routerLink="/song/detail/{{ song.SongId }}">See more</a>
                     </mat-card>
                 </mat-grid-tile>
             </mat-grid-list>
