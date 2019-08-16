@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
-const ApiUrl = 'http://musicqeary.azurewebistes.net/api';
+const ApiUrl = 'https://musicqeary.azurewebsites.net/api';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class PlaylistService {
   }
 
   getPlaylistsSpotify() {
-    return this._http.get(`${ApiUrl}/Playlist`, { headers: this.getHeaders() });
+    return this._http.get(`${ApiUrl}/Playlist/Spotify`, { headers: this.getHeaders() });
   }
 
   getPlaylistById(id: string) {
