@@ -24,6 +24,10 @@ export class SongService {
     return this._http.get(`${ApiUrl}/Song/${id}`, {headers: this.getHeaders()});
   }
 
+  getAllUserSongs(){
+    return this._http.get(`${ApiUrl}/Song/UserSongs`, {headers: this.getHeaders()});
+  }
+
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
