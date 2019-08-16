@@ -51,9 +51,9 @@ export class AppAuthService {
   }
 
   completeRegister(codes: string, registerData: RegisterSpotifyUser){
-    const params = new HttpParams().set('code', codes).set('password', registerData.password);
+    const str = `?code=${codes}&password=${registerData.password}`
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    return this._http.post(`${AppApi_Url}/api/Account/CompleteRegister`, {params: params}, {headers: authHeader});
+    return this._http.post(`${AppApi_Url}/api/Account/CompleteRegister${str}`, {headers: authHeader});
   }
 
   currentUser(): Observable<Object> {
