@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
-const ApiUrl = 'http://musicqeary.azurewebistes.net/api';
+const ApiUrl = 'https://musicqeary.azurewebsites.net/api';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,14 @@ export class SongService {
 
   getSongById(id: string) {
     return this._http.get(`${ApiUrl}/Song/Detail/${id}`, { headers: this.getHeaders() });
+  }
+
+  getSongsInPlaylist(id: string){
+    return this._http.get(`${ApiUrl}/Song/${id}`, {headers: this.getHeaders()});
+  }
+
+  getAllUserSongs(){
+    return this._http.get(`${ApiUrl}/Song/UserSongs`, {headers: this.getHeaders()});
   }
 
   private getHeaders() {

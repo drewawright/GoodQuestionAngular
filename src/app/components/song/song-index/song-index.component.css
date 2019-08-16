@@ -1,6 +1,6 @@
 .song-index-container {
     display: grid;
-    grid-template-columns: 1fr 50px 1fr;
+    grid-template-columns: .7fr 50px 1.3fr;
     color: #fbfbfb;
     margin-top: 50px;
 }
@@ -19,4 +19,27 @@
 
 .song-card-container {
     grid-column: 3 / span 1;
+    overflow:scroll;
+    height: 70vh;
+}
+
+.song-card {
+    width: 200px;
+    padding: 25px;
+    text-align: center;
+    height: 400px;
+    background-color: #374140;
+}
+
+.song-card>img {
+    width: 150px;
+}
+
+mat-card-header{
+    text-align: center;
+    color: #fbfbfb;
+}
+
+mat-card-subtitle{
+    color: #fbfbfb;
 }

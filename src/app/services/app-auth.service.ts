@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { RegisterUser } from '../models/RegisterUser';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Token } from '../models/Token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { TokenRequest } from 'src/app/models/TokenRequest';
+import { RegisterSpotifyUser } from '../models/RegisterSpotifyUser';
 
 const AppApi_Url = 'https://musicqeary.azurewebsites.net';
 
@@ -15,6 +17,7 @@ const AppApi_Url = 'https://musicqeary.azurewebsites.net';
 export class AppAuthService {
   userInfo: Token;
   isLoggedIn = new Subject<boolean>();
+  isRegistered = new Subject<boolean>();
   
   constructor(private _http: HttpClient, private _router: Router) { }
   
@@ -32,7 +35,7 @@ export class AppAuthService {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
-        this._router.navigate(['/']);
+        this._router.navigate(['analyze-user']);
       });
   }
 
@@ -41,7 +44,16 @@ export class AppAuthService {
   }
 
   authExternal() {
-    return this._http.get(`${AppApi_Url}/${this.externalLoginUrl}`);
+    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    authHeader.append('Access-Control-Allow-Origin', '*');
+
+    return this._http.get(`${AppApi_Url}${this.externalLoginUrl}`, {headers: authHeader});
+  }
+
+  completeRegister(codes: string, registerData: RegisterSpotifyUser){
+    const str = `?code=${codes}&password=${registerData.password}`
+    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    return this._http.post(`${AppApi_Url}/api/Account/CompleteRegister${str}`, {headers: authHeader});
   }
 
   currentUser(): Observable<Object> {
@@ -57,8 +69,12 @@ export class AppAuthService {
     this.isLoggedIn.next(false);
 
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    this._http.post(`${AppApi_Url}/api/Account/Logout`, {headers: authHeader});
+    this._http.post(`${AppApi_Url}/api/Account/Logout`, {headers: authHeader}).subscribe();
     this._router.navigate(['/login']);
-    console.log('hmmm');
+  }
+
+  getUserAudioData(){
+    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    return this._http.get(`${AppApi_Url}/api/account/UserAudioData`, {headers: authHeader});
   }
 }

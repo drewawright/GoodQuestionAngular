@@ -10,10 +10,13 @@ import { Song } from 'src/app/models/song';
 })
 export class SongDetailComponent implements OnInit {
 
+  song: Song;
+  songUrl: string;
+
   public chartType: string = "radar";
 
   public chartDataSets: Array<any> = [
-    { data: [0.514, 0.735, 0.578, 0.0902, 0.159, 0.0461, 0.624], label: "Measure for Measure" }
+    { data: [this.song.Acousticness, this.song.Danceability, this.song.Energy, this.song.Instrumentalness, this.song.Liveness, this.song.Speechiness, this.song.Valence], label: "Measure for Measure" }
   ];
 
   public chartLabels: Array<any> = [ 'acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence'];
@@ -28,16 +31,16 @@ export class SongDetailComponent implements OnInit {
 
   public chartOptions: any = {
     responsive: true
-  };
+  }
 
-  song: Song;
+
 
   constructor(private _songService: SongService, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(routeData => {
-      this._songService.getSongById(routeData.get('songId')).subscribe((singleSong: Song) => {
-        this.song = singleSong;
+      this._songService.getSongById(routeData.get('id')).subscribe((singleSong: Song) => {
+        this.song = singleSong; this.songUrl = singleSong.SongId;
       });
     });
   }

@@ -7,6 +7,8 @@ import { PlaylistIndexComponent } from './components/playlist/playlist-index/pla
 import { SongIndexComponent } from './components/song/song-index/song-index.component';
 import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { AnalyzeUserComponent } from './components/analyze-user/analyze-user.component';
+
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -18,11 +20,12 @@ const routes: Routes = [
   },
   {
     path: 'song', children: [
-      { path: '', component: SongIndexComponent },
+      { path: ':id', component: SongIndexComponent },
       { path: 'detail/:id', component: SongDetailComponent },
     ]
   },
   { path: 'callback', component: CallbackComponent },
+  { path: 'analyze-user', component: AnalyzeUserComponent },
   { path: '**', component: HomeComponent }
 ];
 

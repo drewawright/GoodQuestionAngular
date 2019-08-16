@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="playlist-card-container" *ngIf="playlistIndex != null">
-        <mat-grid-list cols="4" rowHeight="2:1">
+        <mat-grid-list cols="4" rowHeight="2:3.2">
             <mat-grid-tile *ngFor="let playlist of playlistIndex">
                 <mat-card class="playlist-card">
                     <img mat-card-image src="{{ playlist.ImageUrl }}" />
@@ -22,7 +22,7 @@
                         <mat-card-title>{{ playlist.PlaylistName }}</mat-card-title>
                         <mat-card-subtitle> {{ playlist.IsOwned }} </mat-card-subtitle>
                     </mat-card-header>
-                    <button mat-flat-button routerLink="/song/index/{{playlist.PlaylistId}}">See More</button>
+                    <a mat-flat-button routerLink="/song/{{playlist.PlaylistId}}" routerLinkActive="is-active">See More</a>
                 </mat-card>
             </mat-grid-tile>
         </mat-grid-list>
