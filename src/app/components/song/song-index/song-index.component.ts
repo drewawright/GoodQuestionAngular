@@ -20,13 +20,13 @@ export class SongIndexComponent implements OnInit {
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(routeData => {
-      this._songService.getSongs(routeData.get('playlistId')).subscribe((songs: Song[]) => {
+      this._songService.getSongs(routeData.get('id')).subscribe((songs: Song[]) => {
         this.songIndex = songs;
       });
     });
     
     this._activatedRoute.paramMap.subscribe(routeData => {
-      this._playlistService.getPlaylistById(routeData.get('playlistId')).subscribe((playlistResult: Playlist) => {
+      this._playlistService.getPlaylistById(routeData.get('id')).subscribe((playlistResult: Playlist) => {
         this.playlist = playlistResult;
       });
     });

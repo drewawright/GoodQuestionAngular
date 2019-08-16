@@ -20,12 +20,12 @@ const routes: Routes = [
   },
   {
     path: 'song', children: [
-      { path: '/:id', component: SongIndexComponent },
+      { path: ':id', component: SongIndexComponent },
       { path: 'detail/:id', component: SongDetailComponent },
     ]
   },
   { path: 'callback', component: CallbackComponent },
-  { path: 'analyze-user/:id', component: AnalyzeUserComponent },
+  { path: 'analyze-user', component: AnalyzeUserComponent },
   { path: '**', component: HomeComponent }
 ];
 

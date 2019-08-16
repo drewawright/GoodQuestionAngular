@@ -20,6 +20,10 @@ export class SongService {
     return this._http.get(`${ApiUrl}/Song/Detail/${id}`, { headers: this.getHeaders() });
   }
 
+  getSongsInPlaylist(id: string){
+    return this._http.get(`${ApiUrl}/Song/${id}`, {headers: this.getHeaders()});
+  }
+
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }

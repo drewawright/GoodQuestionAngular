@@ -35,7 +35,7 @@ export class AppAuthService {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
-        this._router.navigate(['/']);
+        this._router.navigate(['analyze-user']);
       });
   }
 
@@ -71,5 +71,10 @@ export class AppAuthService {
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
     this._http.post(`${AppApi_Url}/api/Account/Logout`, {headers: authHeader}).subscribe();
     this._router.navigate(['/login']);
+  }
+
+  getUserAudioData(){
+    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    return this._http.get(`${AppApi_Url}/api/account/UserAudioData`, {headers: authHeader});
   }
 }
