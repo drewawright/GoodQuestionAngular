@@ -31,7 +31,8 @@ export class SongDetailComponent implements OnInit {
 
   public chartOptions: any = {
     responsive: true
-  };
+  }
+
 
 
   constructor(private _songService: SongService, private _activatedRoute: ActivatedRoute) { }

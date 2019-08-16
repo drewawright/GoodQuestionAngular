@@ -17,13 +17,13 @@
         </div>
         <div class="song-card-container" *ngIf="songIndex != null">
             <iframe src="https://open.spotify.com/embed/playlist/{{playlist.PlaylistId}}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            <mat-grid-list cols="4" rowHeight="2:1">
+            <mat-grid-list cols="4" rowHeight="2:3.2">
                 <mat-grid-tile *ngFor="let song of songIndex">
                     <mat-card class="song-card">
                         <img mat-card-image src="{{ song.ImageUrl }}" />
                         <mat-card-header>
-                            <mat-card-title>{{ song.songName }}</mat-card-title>
-                            <mat-card-subtitle> {{ song.Artist }} </mat-card-subtitle>
+                            <mat-card-title>{{ song.Name }}</mat-card-title>
+                            <mat-card-subtitle> {{ song.Artists }} </mat-card-subtitle>
                             <mat-card-subtitle> {{ song.AlbumName }} </mat-card-subtitle>
                         </mat-card-header>
                         <a mat-flat-button routerLink="/song/detail/{{ song.SongId }}">See more</a>
