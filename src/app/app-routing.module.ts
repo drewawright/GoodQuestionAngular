@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'song', children: [
-      { path: '', component: SongIndexComponent },
+      { path: '/:id', component: SongIndexComponent },
       { path: 'detail/:id', component: SongDetailComponent },
     ]
   },
