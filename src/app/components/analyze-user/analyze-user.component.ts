@@ -17,8 +17,9 @@ export class AnalyzeUserComponent implements OnInit {
 
   ngOnInit() {
     this._playlistService.getPlaylistsSpotify().subscribe(res => console.log(res));
+    this._songService.getAllUserSongs().subscribe(res => console.log(res));
     //this._playlistService.getPlaylists().subscribe((res: Playlist[]) => console.log(res));
-    this._playlistService.getPlaylists().subscribe((res: Playlist[]) => res.forEach( (playlist) => { this._songService.getSongsInPlaylist(playlist.PlaylistId).subscribe(res => console.log(res))}));
+    //this._playlistService.getPlaylists().subscribe((res: Playlist[]) => res.forEach( (playlist) => { this._songService.getSongsInPlaylist(playlist.PlaylistId).subscribe(res => console.log(res))}));
     //this.playlistArray.forEach( (playlist) => {this._songService.getSongsInPlaylist(playlist.PlaylistId).subscribe(res => console.log(res))});
   }
 
