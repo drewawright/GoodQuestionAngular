@@ -8,6 +8,8 @@ import { SongIndexComponent } from './components/song/song-index/song-index.comp
 import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { AnalyzeUserComponent } from './components/analyze-user/analyze-user.component';
+import { AdminPortalComponent } from './components/admin-portal/admin-portal.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 
 const routes: Routes = [
@@ -26,6 +28,12 @@ const routes: Routes = [
   },
   { path: 'callback', component: CallbackComponent },
   { path: 'analyze-user', component: AnalyzeUserComponent },
+  {
+    path: 'admin', children: [
+      { path: 'login', component: AdminLoginComponent },
+      { path: 'portal', component: AdminPortalComponent },
+    ]
+  },
   { path: '**', component: HomeComponent }
 ];
 
