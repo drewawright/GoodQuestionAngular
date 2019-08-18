@@ -63,7 +63,8 @@ export class SongIndexComponent implements OnInit {
     
     this._activatedRoute.paramMap.subscribe(routeData => {
       this._playlistService.getPlaylistById(routeData.get('id')).subscribe((playlistResult: Playlist) => {
-        this.userData.push(playlistResult.Danceability, playlistResult.Energy, playlistResult.Speechiness, playlistResult.Acousticness, playlistResult.Instrumentalness, playlistResult.Liveness, playlistResult.Valence);
+        this.userData.push(playlistResult.Danceability, playlistResult.Energy, playlistResult.Speechiness, playlistResult.Acousticness, playlistResult.Instrumentalness, playlistResult.Liveness, playlistResult.Valence),
+        this.playlist = playlistResult;
       });
     });
 
