@@ -16,12 +16,13 @@ export class PlaylistIndexComponent implements OnInit {
   playlistIndex: Playlist[];
   userAudioData: UserAudioData;
   userData: number[] = [];
+  username: string;
 
   public chartType: string = 'radar';
 
   public chartDatasets: Array<any> = [
     { data: this.userData
-      , label: 'Average User Audio Data' },
+      , label: 'Your Average Audio Data' },
   ];
 
   public chartLabels: Array<any> = ['Danceabiltiy', 'Energy', 'Speechiness', 'Acousticness', 'Instrumentalness', 'Liveness', 'Valence'];
@@ -36,9 +37,24 @@ export class PlaylistIndexComponent implements OnInit {
 
   public chartOptions: any = {
     responsive: true,
+    legend: {
+      labels: {
+        fontColor: '#fbfbfb'
+      }
+    },
     scale:{
       ticks: {
         display: false
+      },
+      pointLabels: {
+        fontColor: '#fbfbfb',
+        fontSize: 16
+      },
+      gridLines: {
+        color: '#374140'
+      },
+      angleLines: {
+        color: '#374140'
       }
     }
   };

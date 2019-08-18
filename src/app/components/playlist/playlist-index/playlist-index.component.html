@@ -18,7 +18,6 @@
                     <img mat-card-image src="{{ playlist.ImageUrl }}" />
                     <mat-card-header>
                         <mat-card-title>{{ playlist.PlaylistName | slice:0:35 }}</mat-card-title>
-                        <mat-card-subtitle> {{ playlist.IsOwned }} </mat-card-subtitle>
                     </mat-card-header>
                     <a mat-flat-button routerLink="/song/{{playlist.PlaylistId}}" routerLinkActive="is-active">See More</a>
                 </mat-card>

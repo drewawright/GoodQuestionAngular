@@ -37,9 +37,24 @@ export class SongIndexComponent implements OnInit {
 
   public chartOptions: any = {
     responsive: true,
+    legend: {
+      labels: {
+        fontColor: '#fbfbfb'
+      }
+    },
     scale:{
       ticks: {
         display: false
+      },
+      pointLabels: {
+        fontColor: '#fbfbfb',
+        fontSize: 16
+      },
+      gridLines: {
+        color: '#374140'
+      },
+      angleLines: {
+        color: '#374140'
       }
     }
   };

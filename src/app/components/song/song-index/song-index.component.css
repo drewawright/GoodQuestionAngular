@@ -3,6 +3,7 @@
     grid-template-columns: .7fr 50px 1.3fr;
     color: #fbfbfb;
     margin-top: 50px;
+    text-align: center;
 }
 
 .song-data-container {
