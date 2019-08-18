@@ -11,7 +11,7 @@
             </canvas>
         </div>
     </div>
-    <div class="playlist-card-container" *ngIf="playlistIndex != null">
+    <div class="playlist-card-container scrollbar scrollbar-secondary" *ngIf="playlistIndex != null">
         <mat-grid-list cols="4" rowHeight="1.9:3.6">
             <mat-grid-tile *ngFor="let playlist of playlistIndex">
                 <mat-card class="playlist-card">

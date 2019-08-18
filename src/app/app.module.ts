@@ -23,6 +23,7 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { AnalyzeUserComponent } from './components/analyze-user/analyze-user.component';
 import { AdminPortalComponent } from './components/admin-portal/admin-portal.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
     AnalyzeUserComponent,
     AdminPortalComponent,
     AdminLoginComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
