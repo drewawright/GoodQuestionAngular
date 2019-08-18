@@ -6,4 +6,6 @@
     color: #fbfbfb;
     display: flex;
     justify-content: center;
+    display: grid;
+    grid-columns: 2;
 }

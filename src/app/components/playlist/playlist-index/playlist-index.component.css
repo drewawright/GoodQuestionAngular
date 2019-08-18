@@ -25,7 +25,7 @@
 
 .playlist-card {
     width: 200px;
-    padding: 25px;
+    padding: 50px 25px 25px 25px;
     text-align: center;
     height: 400px;
     background-color: #374140;

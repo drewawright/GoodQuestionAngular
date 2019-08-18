@@ -15,9 +15,51 @@ export class PlaylistIndexComponent implements OnInit {
 
   playlistIndex: Playlist[];
   userAudioData: UserAudioData;
+  userData: number[] = [];
+
+  public chartType: string = 'radar';
+
+  public chartDatasets: Array<any> = [
+    { data: this.userData
+      , label: 'Average User Audio Data' },
+  ];
+
+  public chartLabels: Array<any> = ['Danceabiltiy', 'Energy', 'Speechiness', 'Acousticness', 'Instrumentalness', 'Liveness', 'Valence'];
+
+  public chartColors: Array<any> = [
+    {
+      backgroundColor: 'rgba(143, 87, 225, .2)',
+      borderColor: 'rgba(200, 99, 132, .7)',
+      borderWidth: 2,
+    },
+  ];
+
+  public chartOptions: any = {
+    responsive: true,
+    scale:{
+      ticks: {
+        display: false
+      }
+    }
+  };
+
+  updateDataset() {
+    const chartData: number[] = this.userData;
+    this.chartDatasets = [
+      { data: chartData }
+    ]
+  }
+
 
   ngOnInit() {
     this._playlistService.getPlaylists().subscribe((res: Playlist[]) => this.playlistIndex = res);
-    this._playlistService.getUserAudioData().subscribe((res: UserAudioData) => this.userAudioData = res);
+
+    this._playlistService.getUserAudioData().subscribe((res: UserAudioData) => { 
+      this.userData.push(res.Danceability, res.Energy, res.Speechiness, res.Acousticness, res.Instrumentalness, res.Liveness, res.Valence);
+    });
+
+    setTimeout(() => {
+      this.updateDataset()
+    }, 1000);
   }
 }
