@@ -18,7 +18,7 @@
                 <iframe [src]= "playlistUrl | safe" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 <mat-grid-list cols="4" rowHeight="1.9:3.6">
                     <mat-grid-tile *ngFor="let song of songIndex">
-                        <mat-card class="song-card">
+                        <mat-card class="song-card" (click)="updateSecondDataset(song)">
                             <img mat-card-image src="{{ song.ImageUrl }}" />
                             <mat-card-header>
                                 <mat-card-title>{{ song.Name | slice:0:35 }}</mat-card-title>
