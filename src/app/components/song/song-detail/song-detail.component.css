@@ -1,0 +1,17 @@
+h2 {
+    text-align: center;
+    color: #FBFBFB;
+}
+
+.song-index-container {
+    display: grid;
+    grid-template-columns: .5fr .5fr .5fr;
+    color: #fbfbfb;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.song-data-container {
+    grid-column: 2 / span 1;
+    float: center;
+}

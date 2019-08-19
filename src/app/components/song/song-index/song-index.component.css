@@ -18,6 +18,10 @@
     border-radius: 15px;
 }
 
+a {
+    height: 3em;
+}
+
 .song-card-container {
     grid-column: 3 / span 1;
     overflow:scroll;
