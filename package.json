@@ -1,5 +1,5 @@
 {
-  "name": "good-question-angular",
+  "name": "tc-musicqeary",
   "version": "0.0.0",
   "engines": {
     "node": "10.15.3"
@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --prod",
-    "start": "serve -s dist/good-question-angular"
+    "start": "serve -s dist/tc-musicqeary"
   },
   "private": true,
   "dependencies": {
