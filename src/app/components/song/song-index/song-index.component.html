@@ -1,7 +1,8 @@
-<div class="song-index-container">
+<div class="song-index-header">
     <a mat-flat-button routerLink="/playlist" class="back-btn"><i class="fas fa-backward"></i></a>
-    
-    <h2 *ngIf="playlist != null">{{ playlist.PlaylistName }}</h2>
+    <h2 *ngIf="playlist != null" class="playlist-name">{{ playlist.PlaylistName }}</h2>
+</div>
+<div class="song-index-container">
         <div class="song-data-container">
             <div style="display: block" ng-hide="userData.count == 0">
                     <canvas mdbChart
@@ -15,8 +16,7 @@
                 </div>
         </div>
             <div class="song-card-container scrollbar scrollbar-secondary" *ngIf="songIndex != null">
-                <iframe [src]= "playlistUrl | safe" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                <mat-grid-list cols="4" rowHeight="1.9:3.6">
+                <mat-grid-list cols="4" rowHeight="210px:380px">
                     <mat-grid-tile *ngFor="let song of songIndex">
                         <mat-card class="song-card" (click)="updateSecondDataset(song)">
                             <img mat-card-image src="{{ song.ImageUrl }}" />

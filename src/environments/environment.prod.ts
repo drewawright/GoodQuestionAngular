@@ -12,5 +12,5 @@ switch (window.location.hostname) {
         break;
     default:
         // this is the local host name of your API
-        APIURL = 'http://localhost:44347';
+        APIURL = 'https://localhost:44347';
 }
