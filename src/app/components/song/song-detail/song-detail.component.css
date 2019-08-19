@@ -1,17 +1,29 @@
-h2 {
-    text-align: center;
-    color: #FBFBFB;
-}
-
 .song-index-container {
     display: grid;
-    grid-template-columns: .5fr .5fr .5fr;
+    grid-template-columns: .7fr 75px 1.3fr;
     color: #fbfbfb;
     margin-top: 25px;
     text-align: center;
 }
 
+h2 {
+    grid-column: 1 / span 3;
+    text-align: center;
+    color: #FBFBFB;
+}
+
 .song-data-container {
+    margin-left: 3em;
+    grid-column: 1 / span 1;
+}
+
+.fix {
     grid-column: 2 / span 1;
-    float: center;
+}
+
+.albumArt>img {
+    grid-column: 3 / span 1;
+    width: 350px;
+    height: 350px;
+    margin-top: 8.5em;
 }

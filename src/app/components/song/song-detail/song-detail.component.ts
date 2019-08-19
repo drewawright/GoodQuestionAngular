@@ -81,7 +81,7 @@ export class SongDetailComponent implements OnInit {
 
     setTimeout(() => {
       this.updateDataset()
-    }, 2000);
+    }, 1500);
   }
 
 }

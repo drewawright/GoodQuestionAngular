@@ -7,7 +7,7 @@
 .playlist-name {
     text-align: center;
     color: #fbfbfb;
-    grid-column: 3 / span 1;
+    grid-column: 3 / span 3;
     margin-top: 10px;
 }
 
