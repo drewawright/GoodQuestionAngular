@@ -1,0 +1,36 @@
+mat-toolbar {
+    background-color: #374140;
+    color: #8f57e1;
+    height: 50px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.nav-logo {
+    color: #8f57e1;
+    text-decoration: none;
+}
+
+.nav-logo:visited {
+    color: #8f57e1;
+}
+
+.highlight {
+    color: #1976D2;
+}
+
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.icon {
+    margin-right: 0.5em;
+    font-size: 2em;
+    color: #fbfbfb;
+}
+
+.icon:hover {
+    cursor: pointer;
+}

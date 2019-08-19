@@ -1,0 +1,27 @@
+<div class="playlist-index-container">
+    <div class="playlist-data-container">
+        <div style="display: block" ng-hide="userData.count == 0">
+            <canvas mdbChart
+                [chartType]="chartType"
+                [datasets]="chartDatasets"
+                [labels]="chartLabels"
+                [colors]="chartColors"
+                [options]="chartOptions"
+                [legend]="true">
+            </canvas>
+        </div>
+    </div>
+    <div class="playlist-card-container scrollbar scrollbar-secondary" *ngIf="playlistIndex != null">
+        <mat-grid-list cols="4" rowHeight="1.9:3.6">
+            <mat-grid-tile *ngFor="let playlist of playlistIndex">
+                <mat-card class="playlist-card" (click)="updateSecondDataset(playlist)">
+                    <img mat-card-image src="{{ playlist.ImageUrl }}" />
+                    <mat-card-header>
+                        <mat-card-title>{{ playlist.PlaylistName | slice:0:35 }}</mat-card-title>
+                    </mat-card-header>
+                    <a mat-flat-button routerLink="/song/{{playlist.PlaylistId}}" routerLinkActive="is-active">See More</a>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

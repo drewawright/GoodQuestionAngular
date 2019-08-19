@@ -1,0 +1,22 @@
+#SpotifyLogo {
+    vertical-align:middle;
+    width: 70px;
+    margin-left: 10px;
+}
+
+.spotify>h3 {
+    font-size: .7em;
+}
+
+#footer {
+    width: 100%;
+    color: #fbfbfb;
+    display: flex;
+    justify-content: center;
+    display: grid;
+}
+
+.logomakr {
+    text-align: right;
+    font-size: .5em;
+}

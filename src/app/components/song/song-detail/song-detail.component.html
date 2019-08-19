@@ -1,0 +1,16 @@
+<div class="song-index-container">
+
+    <h2>{{ song?.Name }}</h2>
+    <div class="song-data-container">
+        <div style="display: block" ng-hide="userData.count == 0">
+                <canvas mdbChart
+                    [chartType]="chartType"
+                    [datasets]="chartDatasets"
+                    [labels]="chartLabels"
+                    [colors]="chartColors"
+                    [options]="chartOptions"
+                    [legend]="true">
+                </canvas>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.form-container {
+    text-align: center;
+    color: #fbfbfb;
+}
+
+form {
+    margin: 20px auto;
+    text-align: center;
+    color: #fbfbfb;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #374140;
+    width: 30%;
+    border-radius: 10px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #fbfbfb;
+}
+
+::ng-deep input.mat-input-element {
+    color: #fbfbfb;
+}
+
+md-input-container label {
+    color: #fbfbfb;
+}

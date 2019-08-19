@@ -1,0 +1,26 @@
+.home-container{
+    text-align: center;
+    height: 60vh;
+    top: 40px;
+    padding-top: 50px;
+    color: #fbfbfb;
+}
+
+.app-name {
+    color: #8f57e1;
+    font-size: 4em;
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+.highlight {
+    color: #1976D2;
+}
+
+.home-btn {
+    background-color: #374140;
+    color: #fbfbfb;
+    height: 70px;
+    width: 180px;
+    margin: 30px;
+    font-size: 1.2em;
+}

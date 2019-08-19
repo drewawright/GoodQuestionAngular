@@ -1,0 +1,78 @@
+.song-index-container {
+    display: grid;
+    grid-template-columns: .7fr 50px 1.3fr;
+    color: #fbfbfb;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.song-data-container {
+    grid-column: 1 / span 1;
+    margin-left: 10px;
+}
+
+.song-data {
+    background: #374140;
+    margin: 20px 10px;
+    padding: 5px 20px;
+    border-radius: 15px;
+}
+
+.song-card-container {
+    grid-column: 3 / span 1;
+    overflow:scroll;
+    overflow-x: hidden;
+    height: 70vh;
+}
+
+.song-card {
+    width: 200px;
+    padding: 25px 10px;
+    text-align: center;
+    height: 400px;
+    background-color: #374140;
+}
+
+.song-card>img {
+    width: 150px;
+}
+
+mat-card-header{
+    text-align: center;
+    color: #fbfbfb;
+}
+
+mat-card-title{
+    font-size: .9em;
+}
+
+mat-card-subtitle{
+    color: #fbfbfb;
+    font-size: .7em;
+}
+
+.back-btn{
+    width: 50px;
+    margin-left: 10px;
+}
+
+.back-btn>i{
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+.scrollbar-secondary::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #374140;
+    border-radius: 10px; }
+    
+    .scrollbar-secondary::-webkit-scrollbar {
+    width: 12px;
+    background-color: #374140; }
+    
+    .scrollbar-secondary::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #8F57E1; }
