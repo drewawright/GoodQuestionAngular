@@ -1,11 +1,13 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="_registerForm">
-    <div>
-        <label>Enter a password for your MusicQEARY account</label>
+<div class="form-continer">
+    <form (ngSubmit)="onSubmit()" [formGroup]="_registerForm">
         <div>
-            <mat-form-field appearance="outline">
-                <input matInput placeholder="password" formControlName="password" type="password" required />
-            </mat-form-field>
+            <label>Enter a password for your MusicQEARY account</label>
+            <div>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="password" formControlName="password" type="password" required />
+                </mat-form-field>
+            </div>
         </div>
-    </div>
-    <button mat-flat-button class="register-btn">Create Account</button>
-</form>
+        <button mat-flat-button class="register-btn">Create Account</button>
+    </form>
+</div>
