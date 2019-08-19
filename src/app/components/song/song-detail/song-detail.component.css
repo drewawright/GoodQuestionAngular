@@ -1,6 +1,6 @@
 .song-index-container {
     display: grid;
-    grid-template-columns: .7fr 75px 1.3fr;
+    grid-template-columns: .8fr 45px 1fr;
     color: #fbfbfb;
     margin-top: 25px;
     text-align: center;
@@ -26,4 +26,5 @@ h2 {
     width: 350px;
     height: 350px;
     margin-top: 8.5em;
+    margin-left: -3em;
 }
