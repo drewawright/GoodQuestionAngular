@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  private _loginForm: FormGroup;
+  _loginForm: FormGroup;
 
   constructor(private _form: FormBuilder, private authService: AppAuthService) { 
     this.createForm();
