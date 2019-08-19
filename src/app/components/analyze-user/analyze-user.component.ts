@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-analyze-user',
   templateUrl: './analyze-user.component.html',
-  styles: []
+  styleUrls: ['./analyze-user.component.css']
 })
 
 export class AnalyzeUserComponent implements OnInit {

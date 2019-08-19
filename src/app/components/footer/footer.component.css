@@ -1,3 +1,8 @@
+.spotify {
+    grid-column: 3 / span 1;
+    text-align: center;
+}
+
 #SpotifyLogo {
     vertical-align:middle;
     width: 70px;
@@ -8,15 +13,18 @@
     font-size: .7em;
 }
 
+.about {
+    grid-column: 5 / span 1;
+    text-align: right;
+    margin-right: 10px;
+}
+
 #footer {
     width: 100%;
     color: #fbfbfb;
     display: flex;
     justify-content: center;
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.logomakr {
-    text-align: right;
-    font-size: .5em;
-}

@@ -24,6 +24,7 @@ import { AnalyzeUserComponent } from './components/analyze-user/analyze-user.com
 import { AdminPortalComponent } from './components/admin-portal/admin-portal.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { SafePipe } from './safe.pipe';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SafePipe } from './safe.pipe';
     AdminPortalComponent,
     AdminLoginComponent,
     SafePipe,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
