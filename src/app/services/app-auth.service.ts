@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { TokenRequest } from 'src/app/models/TokenRequest';
 import { RegisterSpotifyUser } from '../models/RegisterSpotifyUser';
 
-const AppApi_Url = 'https://localhost:44347';
+const AppApi_Url = 'https://musicqeary.azurewebsites.net';
 
 
 @Injectable({
