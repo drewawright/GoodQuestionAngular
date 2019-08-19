@@ -16,12 +16,14 @@ export class PlaylistIndexComponent implements OnInit {
   playlistIndex: Playlist[];
   userAudioData: UserAudioData;
   userData: number[] = [];
+  username: string;
 
   public chartType: string = 'radar';
 
   public chartDatasets: Array<any> = [
     { data: this.userData
-      , label: 'Average User Audio Data' },
+      , label: 'Your Average Audio Data' },
+    { data: [0,0,0,0,0,0,0], label: 'Selected Playlist Data' }
   ];
 
   public chartLabels: Array<any> = ['Danceabiltiy', 'Energy', 'Speechiness', 'Acousticness', 'Instrumentalness', 'Liveness', 'Valence'];
@@ -32,13 +34,34 @@ export class PlaylistIndexComponent implements OnInit {
       borderColor: 'rgba(200, 99, 132, .7)',
       borderWidth: 2,
     },
+    {
+      backgroundColor: 'rgba(25, 118, 210, .2)',
+      borderColor: 'rgba(25, 118, 210, .7)',
+      borderWidth: 2,
+    }
   ];
 
   public chartOptions: any = {
     responsive: true,
+    legend: {
+      labels: {
+        fontColor: '#fbfbfb'
+      }
+    },
     scale:{
       ticks: {
-        display: false
+        display: false,
+        max: 1
+      },
+      pointLabels: {
+        fontColor: '#fbfbfb',
+        fontSize: 16
+      },
+      gridLines: {
+        color: '#374140'
+      },
+      angleLines: {
+        color: '#374140'
       }
     }
   };
@@ -46,7 +69,16 @@ export class PlaylistIndexComponent implements OnInit {
   updateDataset() {
     const chartData: number[] = this.userData;
     this.chartDatasets = [
-      { data: chartData }
+      { data: chartData },
+      { data: [0,0,0,0,0,0,0]}
+    ]
+  }
+
+  updateSecondDataset(playlist: Playlist) {
+    const chartData: number[] = this.userData;
+    this.chartDatasets = [
+      { data: chartData },
+      { data: [playlist.Danceability, playlist.Energy, playlist.Speechiness, playlist.Acousticness, playlist.Instrumentalness, playlist.Liveness, playlist.Valence]}
     ]
   }
 

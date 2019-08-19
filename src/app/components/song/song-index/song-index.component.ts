@@ -15,6 +15,7 @@ export class SongIndexComponent implements OnInit {
   songIndex: Song[];
 
   playlist: Playlist;
+  playlistUrl: string;
 
   userData: number[] = [];
 
@@ -23,6 +24,7 @@ export class SongIndexComponent implements OnInit {
   public chartDatasets: Array<any> = [
     { data: this.userData
       , label: 'Average Playlist Audio Data' },
+    { data: [0,0,0,0,0,0,0], label: 'Selected Song Data' }
   ];
 
   public chartLabels: Array<any> = ['Danceabiltiy', 'Energy', 'Speechiness', 'Acousticness', 'Instrumentalness', 'Liveness', 'Valence'];
@@ -33,13 +35,34 @@ export class SongIndexComponent implements OnInit {
       borderColor: 'rgba(200, 99, 132, .7)',
       borderWidth: 2,
     },
+    {
+      backgroundColor: 'rgba(25, 118, 210, .2)',
+      borderColor: 'rgba(25, 118, 210, .7)',
+      borderWidth: 2,
+    }
   ];
 
   public chartOptions: any = {
     responsive: true,
+    legend: {
+      labels: {
+        fontColor: '#fbfbfb'
+      }
+    },
     scale:{
       ticks: {
-        display: false
+        display: false,
+        max: 1
+      },
+      pointLabels: {
+        fontColor: '#fbfbfb',
+        fontSize: 16
+      },
+      gridLines: {
+        color: '#374140'
+      },
+      angleLines: {
+        color: '#374140'
       }
     }
   };
@@ -47,7 +70,16 @@ export class SongIndexComponent implements OnInit {
   updateDataset() {
     const chartData: number[] = this.userData;
     this.chartDatasets = [
-      { data: chartData }
+      { data: chartData },
+      { data: [0,0,0,0,0,0,0]}
+    ]
+  }
+
+  updateSecondDataset(song: Song) {
+    const chartData: number[] = this.userData;
+    this.chartDatasets = [
+      { data: chartData },
+      { data: [song.Danceability, song.Energy, song.Speechiness, song.Acousticness, song.Instrumentalness, song.Liveness, song.Valence]}
     ]
   }
 
@@ -63,7 +95,8 @@ export class SongIndexComponent implements OnInit {
     
     this._activatedRoute.paramMap.subscribe(routeData => {
       this._playlistService.getPlaylistById(routeData.get('id')).subscribe((playlistResult: Playlist) => {
-        this.userData.push(playlistResult.Danceability, playlistResult.Energy, playlistResult.Speechiness, playlistResult.Acousticness, playlistResult.Instrumentalness, playlistResult.Liveness, playlistResult.Valence);
+        this.userData.push(playlistResult.Danceability, playlistResult.Energy, playlistResult.Speechiness, playlistResult.Acousticness, playlistResult.Instrumentalness, playlistResult.Liveness, playlistResult.Valence),
+        this.playlistUrl = `https://open.spotify.com/embed/playlist/${playlistResult.PlaylistId}`, this.playlist = playlistResult;
       });
     });
 

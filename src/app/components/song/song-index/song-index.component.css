@@ -3,6 +3,7 @@
     grid-template-columns: .7fr 50px 1.3fr;
     color: #fbfbfb;
     margin-top: 50px;
+    text-align: center;
 }
 
 .song-data-container {
@@ -20,6 +21,7 @@
 .song-card-container {
     grid-column: 3 / span 1;
     overflow:scroll;
+    overflow-x: hidden;
     height: 70vh;
 }
 
@@ -48,3 +50,29 @@ mat-card-subtitle{
     color: #fbfbfb;
     font-size: .7em;
 }
+
+.back-btn{
+    width: 50px;
+    margin-left: 10px;
+}
+
+.back-btn>i{
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+.scrollbar-secondary::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #374140;
+    border-radius: 10px; }
+    
+    .scrollbar-secondary::-webkit-scrollbar {
+    width: 12px;
+    background-color: #374140; }
+    
+    .scrollbar-secondary::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #8F57E1; }
