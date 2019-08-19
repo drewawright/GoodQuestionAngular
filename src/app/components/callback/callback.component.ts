@@ -14,7 +14,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 export class CallbackComponent implements OnInit {
 
-  private _registerForm: FormGroup;
+  _registerForm: FormGroup;
   code:string;
   
   constructor(private _activatedRoute: ActivatedRoute, private _AuthService: AppAuthService, private _router: Router, private _form: FormBuilder, ) { }

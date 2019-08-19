@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { APIURL } from '../../../environments/environment.prod';
 
-const ApiUrl = 'https://musicqeary.azurewebsites.net/api';
 @Component({
   selector: 'app-admin-portal',
   templateUrl: './admin-portal.component.html',
@@ -16,11 +16,11 @@ export class AdminPortalComponent implements OnInit {
   }
 
   runBigWipe() {
-    this._http.post(`${ApiUrl}/Account/BigWipe`, { headers: this.getHeaders() }).subscribe();
+    this._http.post(`${APIURL}/Account/BigWipe`, { headers: this.getHeaders() }).subscribe();
   }
 
   runBiggestWipe() {
-    this._http.post(`${ApiUrl}/Account/BiggestWipe`, { headers: this.getHeaders() }).subscribe();
+    this._http.post(`${APIURL}/Account/BiggestWipe`, { headers: this.getHeaders() }).subscribe();
   }
 
   private getHeaders() {
