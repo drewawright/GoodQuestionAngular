@@ -10,11 +10,13 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { AnalyzeUserComponent } from './components/analyze-user/analyze-user.component';
 import { AdminPortalComponent } from './components/admin-portal/admin-portal.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'about', component: AboutComponent },
   { 
     path: 'playlist', children: [
       { path: '', component: PlaylistIndexComponent},

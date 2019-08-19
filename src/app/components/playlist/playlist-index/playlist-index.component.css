@@ -34,10 +34,17 @@
 
 .playlist-card>img {
     width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 
 mat-card-header{
     text-align: center;
+}
+
+mat-card:hover {
+    outline: 5px solid #1976D2;
+    box-sizing: border-box;
 }
 
 .scrollbar-secondary::-webkit-scrollbar-track {

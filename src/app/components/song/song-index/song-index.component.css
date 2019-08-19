@@ -1,3 +1,16 @@
+.song-index-header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.playlist-name {
+    text-align: center;
+    color: #fbfbfb;
+    grid-column: 3 / span 1;
+    margin-top: 10px;
+}
+
 .song-index-container {
     display: grid;
     grid-template-columns: .7fr 50px 1.3fr;
@@ -27,10 +40,15 @@
 
 .song-card {
     width: 200px;
-    padding: 25px 10px;
+    padding: 25px 5px;
     text-align: center;
     height: 400px;
     background-color: #374140;
+    box-sizing: border-box;
+}
+
+mat-card:hover {
+    outline: 5px solid #8F57E1;
 }
 
 .song-card>img {
@@ -43,17 +61,22 @@ mat-card-header{
 }
 
 mat-card-title{
+    text-align: center;
     font-size: .9em;
 }
 
 mat-card-subtitle{
+    text-align: center;
     color: #fbfbfb;
     font-size: .7em;
 }
 
 .back-btn{
     width: 50px;
+    margin-top: 10px;
     margin-left: 10px;
+    text-align: left;
+    grid-column: 1/ span 1;
 }
 
 .back-btn>i{
