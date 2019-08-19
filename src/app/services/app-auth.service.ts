@@ -7,9 +7,7 @@ import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TokenRequest } from 'src/app/models/TokenRequest';
 import { RegisterSpotifyUser } from '../models/RegisterSpotifyUser';
-
-const AppApi_Url = 'https://musicqeary.azurewebsites.net';
-
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -24,14 +22,14 @@ export class AppAuthService {
   externalLoginUrl: string;
 
   register(regUserData: RegisterUser){
-    return this._http.post(`${AppApi_Url}/api/account/register`, regUserData);
+    return this._http.post(`${APIURL}/api/account/register`, regUserData);
   }
 
   login(loginInfo) {
     const str = 
       `grant_type=password&username=${encodeURI(loginInfo.username)}&password=${encodeURI(loginInfo.password)}`;
 
-      return this._http.post(`${AppApi_Url}/Token`, str).subscribe( (token:Token) => {
+      return this._http.post(`${APIURL}/Token`, str).subscribe( (token:Token) => {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
@@ -43,7 +41,7 @@ export class AppAuthService {
     const str = 
       `grant_type=password&username=${encodeURI(loginInfo.username)}&password=${encodeURI(loginInfo.password)}`;
 
-      return this._http.post(`${AppApi_Url}/Token`, str).subscribe( (token:Token) => {
+      return this._http.post(`${APIURL}/Token`, str).subscribe( (token:Token) => {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
@@ -52,20 +50,20 @@ export class AppAuthService {
   }
 
   getExternalUrl() {
-      return this._http.get(`${AppApi_Url}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`).subscribe(response => this.externalLoginUrl = response[0].Url);
+      return this._http.get(`${APIURL}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`).subscribe(response => this.externalLoginUrl = response[0].Url);
   }
 
   authExternal() {
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
     authHeader.append('Access-Control-Allow-Origin', '*');
 
-    return this._http.get(`${AppApi_Url}${this.externalLoginUrl}`, {headers: authHeader});
+    return this._http.get(`${APIURL}${this.externalLoginUrl}`, {headers: authHeader});
   }
 
   completeRegister(codes: string, registerData: RegisterSpotifyUser){
     const str = `?code=${codes}&password=${registerData.password}`
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    return this._http.post(`${AppApi_Url}/api/Account/CompleteRegister${str}`, {headers: authHeader});
+    return this._http.post(`${APIURL}/api/Account/CompleteRegister${str}`, {headers: authHeader});
   }
 
   currentUser(): Observable<Object> {
@@ -73,19 +71,19 @@ export class AppAuthService {
 
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
 
-    return this._http.get(`${AppApi_Url}/api/Account/UserInfo`, {headers: authHeader});
+    return this._http.get(`${APIURL}/api/Account/UserInfo`, {headers: authHeader});
   }
 
   logout(){
     localStorage.clear();
     this.isLoggedIn.next(false);
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    this._http.post(`${AppApi_Url}/api/Account/Logout`, {headers: authHeader}).subscribe();
+    this._http.post(`${APIURL}/api/Account/Logout`, {headers: authHeader}).subscribe();
     this._router.navigate(['/login']);
   }
 
   getUserAudioData(){
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    return this._http.get(`${AppApi_Url}/api/account/UserAudioData`, {headers: authHeader});
+    return this._http.get(`${APIURL}/api/account/UserAudioData`, {headers: authHeader});
   }
 }
