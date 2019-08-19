@@ -1,0 +1,30 @@
+.song-index-container {
+    display: grid;
+    grid-template-columns: .8fr 45px 1fr;
+    color: #fbfbfb;
+    margin-top: 25px;
+    text-align: center;
+}
+
+h2 {
+    grid-column: 1 / span 3;
+    text-align: center;
+    color: #FBFBFB;
+}
+
+.song-data-container {
+    margin-left: 3em;
+    grid-column: 1 / span 1;
+}
+
+.fix {
+    grid-column: 2 / span 1;
+}
+
+.albumArt>img {
+    grid-column: 3 / span 1;
+    width: 350px;
+    height: 350px;
+    margin-top: 8.5em;
+    margin-left: -3em;
+}

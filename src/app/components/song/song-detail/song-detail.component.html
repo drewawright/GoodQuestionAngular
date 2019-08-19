@@ -1,8 +1,9 @@
 <div class="song-index-container">
-
+        
     <h2>{{ song?.Name }}</h2>
     <div class="song-data-container">
         <div style="display: block" ng-hide="userData.count == 0">
+            <div class="chart">
                 <canvas mdbChart
                     [chartType]="chartType"
                     [datasets]="chartDatasets"
@@ -12,5 +13,10 @@
                     [legend]="true">
                 </canvas>
             </div>
+        </div>
+    </div>
+    <div class="fix"></div>
+    <div class="albumArt">
+        <img mat-card-image src="{{ song.ImageUrl }}" />
     </div>
 </div>

@@ -7,7 +7,6 @@
 .playlist-name {
     text-align: center;
     color: #fbfbfb;
-    grid-column: 3 / span 1;
     margin-top: 10px;
 }
 
@@ -29,6 +28,15 @@
     margin: 20px 10px;
     padding: 5px 20px;
     border-radius: 15px;
+}
+
+a {
+    height: 3em;
+}
+
+h2 {
+    grid-column: 3 / span 3;
+    margin-left: -2em;
 }
 
 .song-card-container {

@@ -33,9 +33,25 @@ export class SongDetailComponent implements OnInit {
 
   public chartOptions: any = {
     responsive: true,
+    legend: {
+      labels: {
+        fontColor: '#fbfbfb'
+      }
+    },
     scale:{
       ticks: {
-        display: false
+        display: false,
+        max: 1
+      },
+      pointLabels: {
+        fontColor: '#fbfbfb',
+        fontSize: 16
+      },
+      gridLines: {
+        color: '#374140'
+      },
+      angleLines: {
+        color: '#374140'
       }
     }
   };
@@ -65,7 +81,7 @@ export class SongDetailComponent implements OnInit {
 
     setTimeout(() => {
       this.updateDataset()
-    }, 1000);
+    }, 1500);
   }
 
 }
