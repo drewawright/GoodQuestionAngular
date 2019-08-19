@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { TokenRequest } from 'src/app/models/TokenRequest';
 import { RegisterSpotifyUser } from '../models/RegisterSpotifyUser';
 
-const AppApi_Url = 'https://musicqeary.azurewebsites.net';
+const AppApi_Url = 'https://localhost:44347';
 
 
 @Injectable({
@@ -36,6 +36,18 @@ export class AppAuthService {
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
         this._router.navigate(['analyze-user']);
+      });
+  }
+
+  adminLogin(loginInfo) {
+    const str = 
+      `grant_type=password&username=${encodeURI(loginInfo.username)}&password=${encodeURI(loginInfo.password)}`;
+
+      return this._http.post(`${AppApi_Url}/Token`, str).subscribe( (token:Token) => {
+        this.userInfo = token;
+        localStorage.setItem('id_token', token.access_token);
+        this.isLoggedIn.next(true);
+        this._router.navigate(['admin/portal']);
       });
   }
 
@@ -67,7 +79,6 @@ export class AppAuthService {
   logout(){
     localStorage.clear();
     this.isLoggedIn.next(false);
-
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
     this._http.post(`${AppApi_Url}/api/Account/Logout`, {headers: authHeader}).subscribe();
     this._router.navigate(['/login']);

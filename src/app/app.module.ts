@@ -21,6 +21,8 @@ import { SongIndexComponent } from './components/song/song-index/song-index.comp
 import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { AnalyzeUserComponent } from './components/analyze-user/analyze-user.component';
+import { AdminPortalComponent } from './components/admin-portal/admin-portal.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { AnalyzeUserComponent } from './components/analyze-user/analyze-user.com
     SongDetailComponent,
     CallbackComponent,
     AnalyzeUserComponent,
+    AdminPortalComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
