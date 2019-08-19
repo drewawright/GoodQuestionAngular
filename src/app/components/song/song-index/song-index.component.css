@@ -18,6 +18,15 @@
     text-align: center;
 }
 
+@media(max-width: 968px){
+    .song-index-container {
+        display: block;
+        color: #fbfbfb;
+        margin-top: 50px;
+        text-align: center;
+    }
+}
+
 .song-data-container {
     grid-column: 1 / span 1;
     margin-left: 10px;
@@ -44,6 +53,7 @@ h2 {
     overflow:scroll;
     overflow-x: hidden;
     height: 70vh;
+    min-width: 350px;
 }
 
 .song-card {
@@ -66,6 +76,12 @@ mat-card:hover {
 mat-card-header{
     text-align: center;
     color: #fbfbfb;
+    width: 100%;
+}
+
+/deep/ .mat-card-header-text {
+    width: 165px;
+    text-align: center;
 }
 
 mat-card-title{

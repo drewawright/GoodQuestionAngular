@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="playlist-card-container scrollbar scrollbar-secondary" *ngIf="playlistIndex != null">
-        <mat-grid-list cols="4" rowHeight="210px:380px">
+        <mat-grid-list [cols]="isMobile ? 2 : 4" rowHeight="210px:380px">
             <mat-grid-tile *ngFor="let playlist of playlistIndex">
                 <mat-card class="playlist-card" (click)="updateSecondDataset(playlist)">
                     <img mat-card-image src="{{ playlist.ImageUrl }}" />

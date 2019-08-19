@@ -25,6 +25,7 @@ import { AdminPortalComponent } from './components/admin-portal/admin-portal.com
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { SafePipe } from './safe.pipe';
 import { AboutComponent } from './components/about/about.component';
+import { SongService } from './services/song.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AboutComponent } from './components/about/about.component';
 ],
 providers: [
     AppAuthService,
-    PlaylistService
+    PlaylistService,
+    SongService
   ],
   bootstrap: [AppComponent]
 })

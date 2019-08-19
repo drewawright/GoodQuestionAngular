@@ -3,6 +3,7 @@ import { Playlist } from '../../../models/playlist';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 import { UserAudioData } from 'src/app/models/UserAudioData';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-playlist-index',
@@ -11,12 +12,19 @@ import { UserAudioData } from 'src/app/models/UserAudioData';
 })
 export class PlaylistIndexComponent implements OnInit {
 
-  constructor(private _playlistService: PlaylistService) { }
+  constructor(private _playlistService: PlaylistService, _breakpointObserver: BreakpointObserver) { 
+    _breakpointObserver.observe([
+      Breakpoints.Tablet
+    ]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+  }
 
   playlistIndex: Playlist[];
   userAudioData: UserAudioData;
   userData: number[] = [];
   username: string;
+  public isMobile: boolean = false;
 
   public chartType: string = 'radar';
 
@@ -92,6 +100,6 @@ export class PlaylistIndexComponent implements OnInit {
 
     setTimeout(() => {
       this.updateDataset()
-    }, 1000);
+    }, 1500);
   }
 }
