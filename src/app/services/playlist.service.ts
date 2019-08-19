@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
-const ApiUrl = 'https://localhost:44347/api';
+const ApiUrl = 'https://musicqeary.azurewebsites.net/api';
 
 @Injectable({
   providedIn: 'root'
