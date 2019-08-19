@@ -4,6 +4,7 @@ import { SongService } from 'src/app/services/song.service';
 import { Song } from '../../../models/song';
 import { Playlist } from 'src/app/models/playlist';
 import { PlaylistService } from 'src/app/services/playlist.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-song-index',
@@ -12,6 +13,7 @@ import { PlaylistService } from 'src/app/services/playlist.service';
 })
 export class SongIndexComponent implements OnInit {
 
+  public isMobile: boolean = false;
   songIndex: Song[];
 
   playlist: Playlist;
@@ -84,7 +86,13 @@ export class SongIndexComponent implements OnInit {
   }
 
 
-  constructor(private _activatedRoute: ActivatedRoute, private _songService: SongService, private _playlistService: PlaylistService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _songService: SongService, private _playlistService: PlaylistService, _breakpointObserver: BreakpointObserver) { 
+    _breakpointObserver.observe([
+      Breakpoints.Tablet
+    ]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+  }
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(routeData => {
@@ -102,7 +110,7 @@ export class SongIndexComponent implements OnInit {
 
     setTimeout(() => {
       this.updateDataset()
-    }, 1000);
+    }, 1500);
   }
 
 }

@@ -16,11 +16,11 @@
                 </div>
         </div>
             <div class="song-card-container scrollbar scrollbar-secondary" *ngIf="songIndex != null">
-                <mat-grid-list cols="4" rowHeight="210px:380px">
+                <mat-grid-list [cols]="isMobile ? 2 : 4" rowHeight="210px:380px">
                     <mat-grid-tile *ngFor="let song of songIndex">
-                        <mat-card class="song-card" (click)="updateSecondDataset(song)">
+                        <mat-card class="song-card" (click)="updateSecondDataset(song)" >
                             <img mat-card-image src="{{ song.ImageUrl }}" />
-                            <mat-card-header>
+                            <mat-card-header layout="column" layout-align="center">
                                 <mat-card-title>{{ song.Name | slice:0:35 }}</mat-card-title>
                                 <mat-card-subtitle> {{ song.Artists }} </mat-card-subtitle>
                                 <mat-card-subtitle> {{ song.AlbumName | slice:0:35 }} </mat-card-subtitle>
