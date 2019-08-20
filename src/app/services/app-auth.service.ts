@@ -72,7 +72,6 @@ export class AppAuthService {
   }
 
   refreshUserToken(){
-    console.log(`https://localhost:44347/api/Account/RefreshToken`);
     return this._http.get(`${APIURL}/api/Account/RefreshToken`, {headers: this.getHeaders()});
   }
 

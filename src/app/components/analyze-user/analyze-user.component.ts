@@ -20,6 +20,6 @@ export class AnalyzeUserComponent implements OnInit {
     this._appAuth.refreshUserToken().subscribe(res => 
       this._playlistService.getPlaylistsSpotify().subscribe(res => 
         this._songService.getAllUserSongs().subscribe(res => this._songService.refreshAllUserSongsArtwork().subscribe(
-          res => this._router.navigate(['playlist'])))));
+          res => this._playlistService.getPlaylistsArtwork().subscribe(res => this._router.navigate(['playlist']))))));
   }
 }
