@@ -1,0 +1,28 @@
+.about-container {
+    width: 100%;
+    text-align: center;
+    color: #fbfbfb;
+}
+
+.about-text {
+    font-size: 4em;
+}
+
+.app-name {
+    color: #8f57e1;
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+.highlight {
+    color: #1976D2;
+}
+
+hr {
+    border: 0;
+    height: 3px;
+    background-image: linear-gradient(to right, rgba(25, 118, 210, 1), rgba(143, 87, 225, 1), rgba(25, 118, 210, 1));
+}
+
+.about-description {
+    margin: 20px 200px;
+}
