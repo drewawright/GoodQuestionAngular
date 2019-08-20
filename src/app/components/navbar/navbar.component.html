@@ -1,12 +1,9 @@
 <mat-toolbar>
-    <a routerLink="home" class="nav-logo">MusicQ<span class="highlight">EAR</span>Y</a>
+    <a routerLink="home" class="nav-logo" *ngIf="!isLoggedIn">MusicQ<span class="highlight">EAR</span>Y</a>
+    <a routerLink="/playlist" class="nav-logo" *ngIf="isLoggedIn">MusicQ<span class="highlight">EAR</span>Y</a>
     <span class="example-fill-remaining-space"></span>
     <mat-menu #appMenu="matMenu">
-        <!-- <button mat-menu-item>Settings</button> -->
         <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
-        <!-- <i mat-icon-button [matMenuTriggerFor]="appMenu" class="material-icons">
-            person
-        </i>     -->
-        <mdb-icon fas icon="user" [matMenuTriggerFor]="appMenu" class="icon"></mdb-icon>
+    <mdb-icon fas icon="user" [matMenuTriggerFor]="appMenu" class="icon"></mdb-icon>
 </mat-toolbar>
