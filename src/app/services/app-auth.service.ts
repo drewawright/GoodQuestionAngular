@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { TokenRequest } from 'src/app/models/TokenRequest';
 import { APIURL } from '../../environments/environment.prod';
 import { SetPassword } from '../models/SetPassword';
+import { AppUserAuth } from '../models/AppUserAuth';
 
 @Injectable({
   providedIn: 'root'
@@ -38,14 +39,22 @@ export class AppAuthService {
   }
 
   adminLogin(loginInfo) {
+    var role: string;
     const str = 
       `grant_type=password&username=${encodeURI(loginInfo.username)}&password=${encodeURI(loginInfo.password)}`;
-
       return this._http.post(`${APIURL}/Token`, str).subscribe( (token:Token) => {
         this.userInfo = token;
         localStorage.setItem('id_token', token.access_token);
         this.isLoggedIn.next(true);
-        this._router.navigate(['admin/portal']);
+        this._http.get(`${APIURL}/api/Account/UserInfo`,{headers: this.getHeaders()}).subscribe((res: AppUserAuth) => {
+          role = res.Role;
+          if(role == "Admin"){this._router.navigate(['admin/portal']);
+          }else {
+            this._router.navigate(['home']);
+          }
+        });
+        
+
       });
   }
 
