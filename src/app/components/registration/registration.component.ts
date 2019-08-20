@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
 import { AppAuthService } from '../../services/app-auth.service';
 import { Router } from '@angular/router';
-import { APIURL } from 'src/environments/environment.prod';
+import { APIURL } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-registration',

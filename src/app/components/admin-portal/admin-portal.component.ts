@@ -16,11 +16,11 @@ export class AdminPortalComponent implements OnInit {
   }
 
   runBigWipe() {
-    this._http.post(`${APIURL}/Account/BigWipe`, { headers: this.getHeaders() }).subscribe();
+    this._http.get(`${APIURL}/Account/BigWipe`, { headers: this.getHeaders() }).subscribe();
   }
 
   runBiggestWipe() {
-    this._http.post(`${APIURL}/Account/BiggestWipe`, { headers: this.getHeaders() }).subscribe();
+    this._http.get(`${APIURL}/Account/BiggestWipe`, { headers: this.getHeaders() }).subscribe();
   }
 
   private getHeaders() {
