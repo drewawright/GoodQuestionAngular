@@ -47,18 +47,26 @@
     object-fit: cover;
 }
 
+mat-card-header{
+    text-align: center;
+    color: #fbfbfb;
+    width: 100%;
+}
+
 /deep/ .mat-card-header-text {
     width: 165px;
     text-align: center;
 }
 
-mat-card-header{
+mat-card-title{
     text-align: center;
+    font-size: .9em;
 }
 
-mat-card:hover {
-    outline: 5px solid #1976D2;
-    box-sizing: border-box;
+mat-card-subtitle{
+    text-align: center;
+    color: #fbfbfb;
+    font-size: .7em;
 }
 
 .scrollbar-secondary::-webkit-scrollbar-track {
