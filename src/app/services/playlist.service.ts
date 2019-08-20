@@ -26,6 +26,10 @@ export class PlaylistService {
     return this._http.get(`${APIURL}/api/Account/UserAudioData`, { headers: this.getHeaders() })
   }
 
+  getPlaylistsArtwork() {
+    return this._http.get(`${APIURL}/api/Playlist/RefreshUserPlaylistsArtwork`, { headers: this.getHeaders() })
+  }
+
 
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);

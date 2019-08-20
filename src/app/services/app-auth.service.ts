@@ -54,7 +54,7 @@ export class AppAuthService {
   }
 
   authExternal() {
-    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    const authHeader = this.getHeaders();
     authHeader.append('Access-Control-Allow-Origin', '*');
 
     return this._http.get(`${APIURL}${this.externalLoginUrl}`, {headers: authHeader});
@@ -62,28 +62,31 @@ export class AppAuthService {
 
   completeRegister(codes: string, registerData: RegisterSpotifyUser){
     const str = `?code=${codes}&password=${registerData.password}`
-    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    return this._http.post(`${APIURL}/api/Account/CompleteRegister${str}`, {headers: authHeader});
+    return this._http.post(`${APIURL}/api/Account/CompleteRegister${str}`, {headers: this.getHeaders()});
   }
 
   currentUser(): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
-    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    return this._http.get(`${APIURL}/api/Account/UserInfo`, {headers: this.getHeaders()});
+  }
 
-    return this._http.get(`${APIURL}/api/Account/UserInfo`, {headers: authHeader});
+  refreshUserToken(){
+    return this._http.get(`${APIURL}/api/Account/RefreshToken`, {headers: this.getHeaders()});
   }
 
   logout(){
     localStorage.clear();
     this.isLoggedIn.next(false);
-    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    this._http.post(`${APIURL}/api/Account/Logout`, {headers: authHeader}).subscribe();
+    this._http.get(`${APIURL}/api/Account/Logout`, {headers: this.getHeaders()}).subscribe();
     this._router.navigate(['/login']);
   }
 
   getUserAudioData(){
-    const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    return this._http.get(`${APIURL}/api/account/UserAudioData`, {headers: authHeader});
+    return this._http.get(`${APIURL}/api/account/UserAudioData`, {headers: this.getHeaders()});
+  }
+
+  private getHeaders() {
+    return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 }
