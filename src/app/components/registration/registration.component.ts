@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
 import { AppAuthService } from '../../services/app-auth.service';
 import { Router } from '@angular/router';
+import { APIURL } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-registration',
@@ -23,7 +24,7 @@ export class RegistrationComponent implements OnInit {
 
   authExternalProvider() {
 
-    window.open(`https://musicqeary.azurewebsites.net${this._appAuthService.externalLoginUrl}`,"_self", "Authenticate Account" );
+    window.open(`${APIURL}${this._appAuthService.externalLoginUrl}`,"_self", "Authenticate Account" );
   }
 
   createForm() {

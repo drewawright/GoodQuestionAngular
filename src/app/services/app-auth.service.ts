@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TokenRequest } from 'src/app/models/TokenRequest';
-import { RegisterSpotifyUser } from '../models/RegisterSpotifyUser';
 import { APIURL } from '../../environments/environment.prod';
+import { SetPassword } from '../models/SetPassword';
 
 @Injectable({
   providedIn: 'root'
@@ -60,10 +60,10 @@ export class AppAuthService {
     return this._http.get(`${APIURL}${this.externalLoginUrl}`, {headers: authHeader});
   }
 
-  completeRegister(codes: string, registerData: RegisterSpotifyUser){
-    const str = `?code=${codes}&password=${registerData.password}`
+  completeRegister(codes: string, registerData: SetPassword){
+    const str = `?code=${codes}`
     const authHeader = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-    return this._http.post(`${APIURL}/api/Account/CompleteRegister${str}`, {headers: authHeader});
+    return this._http.post(`${APIURL}/api/Account/CompleteRegister${str}`, registerData, {headers: authHeader});
   }
 
   currentUser(): Observable<Object> {

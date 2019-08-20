@@ -10,7 +10,10 @@ export class NavbarComponent implements OnInit {
 
   constructor(private authService: AppAuthService) { }
 
+  public isLoggedIn: boolean;
+
   ngOnInit() {
+    this.authService.isLoggedIn.subscribe(res => this.isLoggedIn = res.valueOf())
   }
 
   logout(){
