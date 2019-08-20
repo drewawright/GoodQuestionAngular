@@ -73,13 +73,13 @@ export class AppAuthService {
 
   refreshUserToken(){
     console.log(`https://localhost:44347/api/Account/RefreshToken`);
-    return this._http.post(`${APIURL}/api/Account/RefreshToken`, {headers: this.getHeaders()});
+    return this._http.get(`${APIURL}/api/Account/RefreshToken`, {headers: this.getHeaders()});
   }
 
   logout(){
     localStorage.clear();
     this.isLoggedIn.next(false);
-    this._http.post(`${APIURL}/api/Account/Logout`, {headers: this.getHeaders()}).subscribe();
+    this._http.get(`${APIURL}/api/Account/Logout`, {headers: this.getHeaders()}).subscribe();
     this._router.navigate(['/login']);
   }
 

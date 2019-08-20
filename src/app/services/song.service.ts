@@ -25,6 +25,9 @@ export class SongService {
   getAllUserSongs(){
     return this._http.get(`${APIURL}/api/Song/UserSongs`, {headers: this.getHeaders()});
   }
+  refreshAllUserSongsArtwork(){
+    return this._http.get(`${APIURL}/api/Song/RefreshUserSongsArtwork`, {headers: this.getHeaders()});
+  }
 
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);

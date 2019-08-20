@@ -19,6 +19,7 @@ export class AnalyzeUserComponent implements OnInit {
   ngOnInit() {
     this._appAuth.refreshUserToken().subscribe(res => 
       this._playlistService.getPlaylistsSpotify().subscribe(res => 
-        this._songService.getAllUserSongs().subscribe(res => this._router.navigate(['playlist']))));
+        this._songService.getAllUserSongs().subscribe(res => this._songService.refreshAllUserSongsArtwork().subscribe(
+          res => this._router.navigate(['playlist'])))));
   }
 }
