@@ -5,6 +5,15 @@
     margin-top: 50px;
 }
 
+@media(max-width: 968px){
+    .playlist-index-container {
+        display: block;
+        color: #fbfbfb;
+        margin-top: 50px;
+        text-align: center;
+    }
+}
+
 .playlist-data-container {
     grid-column: 1 / span 1;
     margin-left: 10px;
@@ -34,10 +43,22 @@
 
 .playlist-card>img {
     width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/deep/ .mat-card-header-text {
+    width: 165px;
+    text-align: center;
 }
 
 mat-card-header{
     text-align: center;
+}
+
+mat-card:hover {
+    outline: 5px solid #1976D2;
+    box-sizing: border-box;
 }
 
 .scrollbar-secondary::-webkit-scrollbar-track {

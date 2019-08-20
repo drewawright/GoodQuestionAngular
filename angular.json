@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "MusicQEARY",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

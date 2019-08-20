@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 import { TokenRequest } from 'src/app/models/TokenRequest';
 import { AppAuthService } from 'src/app/services/app-auth.service';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { MyErrorStateMatcher } from 'src/app/models/MyErrorStateMatcher';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 export class CallbackComponent implements OnInit {
 
+  matcher = new MyErrorStateMatcher();
   _registerForm: FormGroup;
   code:string;
   
@@ -28,14 +30,24 @@ export class CallbackComponent implements OnInit {
   
   createForm() {
     this._registerForm = this._form.group({
-      password: new FormControl,
-    });
+      password: ['', [Validators.required]],
+      confirmPassword: ['']
+    },
+    {validator: this.checkPasswords }
+    );
   }
 
   onSubmit() {
     this._AuthService.completeRegister(this.code, this._registerForm.value).subscribe(data => {
       this._router.navigate(['/login']);
     });
+  }
+
+  checkPasswords(_registerForm: FormGroup){
+    let pass = _registerForm.controls.password.value;
+    let confirmPass = _registerForm.controls.confirmPassword.value;
+
+    return pass === confirmPass ? null : { notSame: true}
   }
 
 }
