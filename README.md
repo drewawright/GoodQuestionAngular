@@ -1,6 +1,22 @@
-# GoodQuestionAngular
+# MusicQEARY
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+
+## About
+
+MusicQEARY lets you see a visual representation of the musical attributes of your Spotify Playlists and Songs. We use Spotify's API to get a variety of data about the music you listen to and create playlist averages and user averages for your audio data. 
+
+## MusicQEARY API
+
+The MusicQEARY API can be found at our [Github](https://github.com/drewawright/MusicQEARY).  
+
+## Check it out
+
+MusicQEARY's angular application is currently hosted [here](https://tc-musicqeary.herokuapp.com/). A locally running API is currently required for MusicQEARY.
+
+## Dependencies
+
+We use [MDBoostrap](https://mdbootstrap.com/docs/angular/) for elements of this project.
 
 ## Development server
 
