@@ -8,7 +8,7 @@ MusicQEARY lets you see a visual representation of the musical attributes of you
 
 ## MusicQEARY API
 
-The MusicQEARY API can be found at our [Github](https://github.com/drewawright/GoodQuestion).  
+The MusicQEARY API can be found at our [Github](https://github.com/drewawright/MusicQEARY).  
 
 ## Check it out
 
