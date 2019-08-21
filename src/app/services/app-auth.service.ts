@@ -58,6 +58,10 @@ export class AppAuthService {
       });
   }
 
+  getUserInfo() {
+    return this._http.get(`${APIURL}/api/Account/UserInfo`,{headers: this.getHeaders()});
+  }
+
   getExternalUrl() {
       return this._http.get(`${APIURL}/api/Account/ExternalLogins?returnUrl=%2F&generateState=true`).subscribe(response => this.externalLoginUrl = response[0].Url);
   }
